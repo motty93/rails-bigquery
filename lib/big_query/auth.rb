@@ -22,7 +22,7 @@ module BigQuery
         keyfile = ENV['BQ_CREDENTIAL_PATH']
         creds = Google::Cloud::Bigquery::Credentials.new(keyfile)
         Google::Cloud::Bigquery.new(
-          project_id: ENV['PROJECT_ID'],
+          project_id: ENV['GCP_PROJECT_ID'],
           credentials: creds
         )
       end
