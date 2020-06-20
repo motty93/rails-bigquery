@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.5.3
 ENV LANG C.UTF-8
 ENV APP_ROOT /myapp
 ENV DEBCONF_NOWARNINGS yes
@@ -8,7 +8,7 @@ RUN apt-get update -qq && apt-get install -y \
     libpq-dev \
     postgresql-client \
     nodejs && \
-    gem install rails -v '5.2.4' && \
+    gem install rails -v '5.2.0' && \
     gem install bundler
 
 WORKDIR /tmp

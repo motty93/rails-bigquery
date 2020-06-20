@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "rails new"
-docker-compose run --rm web rails _5.2.4_ new . --skip --database=postgresql \
+docker-compose run --rm web rails _5.2.0_ new . --skip --database=postgresql \
   --skip-git --skip-turbolinks --skip-coffee --skip-test --skip-spring
 
 if [ "$(uname)" == 'Linux' ]; then

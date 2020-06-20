@@ -1,0 +1,6 @@
+POSTGRES_USER='bigquery_rails'
+POSTGRES_PASSWORD='bigquery_rails'
+POSTGRES_DB='bigquery_rails_development'
+POSTGRES_PRODUCTION_DB='bigquery_rails_production'
+POSTGRES_HOST='postgres'
+POSTGRES_PORT=5432
