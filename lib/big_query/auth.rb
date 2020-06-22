@@ -1,13 +1,11 @@
-require "google/cloud/bigquery"
-
 module BigQuery
   class Auth
+    include Credential
     attr_reader :bigquery, :dataset, :table, :table_name
-
-    DEFAULT_DATASET = 'test'
+    DEFAULT_DATASET = 'db_test'
 
     def initialize(args={})
-      @bigquery = set_creadential
+      @bigquery = set_credential
       @dataset = set_dataset(args[:dataset] || DEFAULT_DATASET)
       post_initialize(args)
     end
@@ -18,12 +16,10 @@ module BigQuery
 
     private
 
-      def set_creadential
-        keyfile = ENV['BQ_CREDENTIAL_PATH']
-        creds = Google::Cloud::Bigquery::Credentials.new(keyfile)
+      def set_credential
         Google::Cloud::Bigquery.new(
           project_id: ENV['GCP_PROJECT_ID'],
-          credentials: creds
+          credentials: secret_key
         )
       end
 
