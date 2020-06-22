@@ -2,9 +2,8 @@ module BigQuery
   class Table < Auth
 
     def post_initialize(args)
-      # 下のtable_nameメソッドがclassの名前を使う形になっているので設計を考え直す
       @table = exist_table || create_table
-      @table_name = table_name
+      @table_name = args[:table_name] || table_name
     end
 
     def add(**field_params)
