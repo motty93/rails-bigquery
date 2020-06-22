@@ -2,7 +2,8 @@ module BigQuery
   class Table < Auth
 
     def post_initialize(args)
-      @table = exist_table
+      # 下のtable_nameメソッドがclassの名前を使う形になっているので設計を考え直す
+      @table = exist_table || create_table
       @table_name = table_name
     end
 
