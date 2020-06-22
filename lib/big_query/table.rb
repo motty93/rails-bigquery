@@ -2,7 +2,7 @@ module BigQuery
   class Table < Auth
 
     def post_initialize(args)
-      @table = exist_table || create_table
+      @table = exist_table
       @table_name = table_name
     end
 
