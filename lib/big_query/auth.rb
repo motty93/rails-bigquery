@@ -4,7 +4,7 @@ module BigQuery
     attr_reader :bigquery, :dataset, :table, :table_name
     DEFAULT_DATASET = 'db_test'
 
-    def initialize(args={})
+    def initialize(args = {})
       @bigquery = set_credential
       @dataset = set_dataset(args[:dataset] || DEFAULT_DATASET)
       post_initialize(args)

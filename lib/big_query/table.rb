@@ -1,9 +1,13 @@
 module BigQuery
   class Table < Auth
+    attr_accessor :table_name, :table
+
+    def initialize(args={})
+      @table_name = args[:table_name] || table_name
+    end
 
     def post_initialize(args)
       @table = exist_table || create_table
-      @table_name = args[:table_name] || table_name
     end
 
     def add(**field_params)
