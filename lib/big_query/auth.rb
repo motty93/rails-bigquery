@@ -1,7 +1,7 @@
 module BigQuery
   class Auth
     include Credential
-    attr_reader :bigquery, :dataset, :table, :table_name
+    attr_reader :bigquery, :dataset, :table, :table_name, :tables
     DEFAULT_DATASET = 'db_test'
 
     def initialize(args = {})
