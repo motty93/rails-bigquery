@@ -1,2 +1,2 @@
-<h1>Api::Zendesk#show</h1>
-<p>Find me in app/views/api/zendesk/show.html.erb</p>
+<h1><%= "#{@article['id']}:#{@article['title']}" %></h1>
+<%= @article['body'].html_safe %>
