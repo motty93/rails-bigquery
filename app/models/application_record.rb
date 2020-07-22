@@ -3,6 +3,6 @@ class ApplicationRecord < ActiveRecord::Base
   after_update :set_sync_flag
 
   def set_sync_flag
-    update(synchronized: false)
+    update_column(:synchronized, false)
   end
 end
