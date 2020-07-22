@@ -1,2 +1,0 @@
-module Api::ZendeskHelper
-end
