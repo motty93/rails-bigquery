@@ -1,7 +1,13 @@
 class Api::ZendesksController < ApplicationController
+  before_action :set_zendesk_help
+
   def show
-    url = "https://#{ENV['SUB_DOMAIN']}.zendesk.com/api/v2/help_center/ja/articles/#{params[:id]}.json"
-    req = Typhoeus::Request.get(url)
-    @article = JSON.parse(req.response_body)['article']
+    @info = @help_center.article_info.transform_keys { |key| key.camelize(:lower) }
   end
+
+  private
+
+    def set_zendesk_help
+      @help_center = Zendesk::HelpCenter.new(**{ article_id: params[:id] })
+    end
 end
