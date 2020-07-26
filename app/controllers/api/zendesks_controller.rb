@@ -8,6 +8,12 @@ class Api::ZendesksController < ApplicationController
   private
 
     def set_zendesk_help
-      @help_center = Zendesk::HelpCenter.new(**{ article_id: params[:id] })
+      @help_center = Zendesk::HelpCenter.new(**article_id_params)
+    end
+
+    def article_id_params
+      {
+        article_id: params[:id],
+      }
     end
 end
